@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Custom CheckBox in TreeGrid - jQuery EasyUI Demo</title>
+    <link href="../../themes/default/easyui.css" rel="stylesheet" type="text/css">
+    <link href="../../themes/icon.css" rel="stylesheet" type="text/css">
+    <link href="../demo.css" rel="stylesheet" type="text/css">
+    <script src="../../jquery.min.js" type="text/javascript"></script>
+    <script src="../../jquery.easyui.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h2>Custom CheckBox in TreeGrid</h2>
+<p>TreeGrid nodes with customized check boxes.</p>
+<div style="margin:20px 0;"></div>
+<table class="easyui-treegrid" data-options="
+				url: 'treegrid_data1.json',
+				method: 'get',
+				rownumbers: true,
+				idField: 'id',
+				treeField: 'name',
+				checkbox: function(row){
+					var names = ['Java','eclipse.exe','eclipse.ini'];
+					if ($.inArray(row.name, names)>=0){
+						return true;
+					}
+				}
+			" style="width:700px;height:250px"
+       title="Folder Browser">
+    <thead>
+    <tr>
+        <th data-options="field:'name'" width="220">Name</th>
+        <th align="right" data-options="field:'size'" width="100">Size</th>
+        <th data-options="field:'date'" width="150">Modified Date</th>
+    </tr>
+    </thead>
+</table>
+
+</body>
+</html>
